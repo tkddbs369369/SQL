@@ -1,0 +1,68 @@
+--6. employees 테이블에서 employee_id를 출력하고 first_name과 last_name을 붙여서 출력하세요.
+
+select employee_id, first_name||last_name
+from EMPLOYEES;
+
+
+--10. employees 테이블에서 salary가 10,000 이상이고 20,000 이하인 직원 정보를 출력하세요.
+
+
+select *
+from EMPLOYEES;
+where salary between 10000 and 20000;
+
+--11. employees 테이블에서 job_id값이 AD를 포함하는 모든(%) 데이터를 조회하세요.
+
+SELECT *
+FROM employees
+WHERE job_id LIKE 'AD%';
+
+--12. employees 테이블에서 salary가 10000, 17000, 24000인 직원 정보를 출력하세요.
+
+select *
+from  EMPLOYEES
+where SALARY in(10000,17000,24000);
+
+--13. ㅍemployees 테이블에서 manager_id가 null 값인 직원 정보를 출력해 보세요.
+
+
+select *
+from EMPLOYEES
+where MANAGER_ID is null;
+
+
+--14. employees 테이블에서 employee_id가 105 이상인 직원 정보를 출력하세요.
+
+select  *
+from EMPLOYEES
+where EMPLOYEE_ID > 105;
+
+--16. employees 테이블에서 AD를 포함하면서 AD 뒤에 따라오는 문자열이 3자리인 데이터 값을 갖는 직원 정보를 조회하세요. (AD+3자리 데이터 값)
+
+select *
+from EMPLOYEES
+where JOB_ID like 'AD___';
+
+
+--17. employees 테이블에서 salary가 4000을 초과하면서(AND), job_id가 IT_PROG거나(OR) FI_ACCOUNT인 경우를 조회하세요.
+SELECT *
+from EMPLOYEES
+where SALARY > 4000 and
+JOB_ID ='IT_PROG' or JOB_ID = 'FI_ACCOUNT';
+
+
+
+--18. employees 테이블에서 salary가 4000을 초과하면서(AND), job_id가 IT_PROG인 값을 조회하세요.
+
+select *
+from EMPLOYEES
+where SALARY > 4000 and JOB_ID ='IT_PROG';
+
+
+--19.employees 테이블에서 job_id 문자열 값이 ACCOUNT면 ACCNT로 출력하세요.
+select replace(JOB_ID, 'ACCOUNT', 'ACCNT')
+from EMPLOYEES;
+
+--20. employees 테이블에서 last_name을 소문자와 대문자로 각각 출력하고, email의 첫 번째 문자는 대문자로 출력하세요.
+SELECT  LOWER(last_name),UPPER(last_name) ,INITCAP(email)
+FROM employees;
